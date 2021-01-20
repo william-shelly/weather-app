@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 id="cityName" class="fs-1"></h1>
+        <input id="ZIPEntered" class="form-control" type="text" value="" placeholder="90210" />
+        <ul>
+            <li><span id="temp" class="text-capitalize"></span></li>
+            <li><span id="temp_min" class="text-capitalize"></span></li>
+            <li><span id="temp_max" class="text-capitalize"></span></li>
+            <li><span id="humidity" class="text-capitalize"></span></li>
+            <li><span id="timestamp" class="text-capitalize text-danger"></span></li>
+            <li><span id="sunrise" class="text-capitalize  text-danger"></span></li>
+            <li><span id="sunset" class="text-capitalize  text-danger"></span></li>
+<!--            <li><span id="conditionID" class="text-capitalize  text-danger"></span></li> -->
+            <li><span id="timezone" class="text-capitalize  text-danger"></span></li>
+            <li><span id="main" class="text-capitalize"></span></li>
+            <li><span id="description" class="text-capitalize"></span></li>
+            <li><span id="icon" class="text-capitalize"></span></li>
+            <!-- <li><span id=""></span></li>
+            <li><span id=""></span></li>
+            <li><span id=""></span></li>
+            <li><span id=""></span></li>
+            <li><span id=""></span></li>
+            <li><span id=""></span></li> -->
+        </ul>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
+
+<!-- 
+Create a new folder / GitHub project
+
+Utilize the OpenWeatherMap.org API to get conditions based on a zip code.
+https://openweathermap.org/current#zip
+Sample API key: ccef2c8c8034982955bec1e0b2a83e36
+
+Show the conditions of a default location when the page is loaded - you can choose the location in the world (as long as the API provides the data for it).
+
+Allow the user to type their zip code into an input box, click a button to get conditions for their specific zip code.
+
+Creatively visualize the conditions of the location using CSS and Font Awesome. If it's hot there, show a sun icon and/or some "hot colors", if it's rainy somewhere, show an appropriate icon / color scheme for that situation as well.
+
+Read through the documentation or look at the sample response from the API to determine the possible ways they can communicate what the conditions are (possibly through the "main.temp" and/or the "weather" array in the response.
+
+Show the name of the location for the zip code the user typed in (also in the API response to use).
+-->
