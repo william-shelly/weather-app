@@ -109,11 +109,12 @@ function getWeather() {
 /* updateWeather */
 
 function updateWeather() {
-    console.log('Start getWeather');
+    console.log('Start updateWeather');
     console.log('getWeather function zip value: ' + zip);
+    openLink = link + zip + ',' + country + '&units=' + units;
     let request = new XMLHttpRequest();
     console.log('131: ' + request.responseText);
-    request.addEventListener('statechange', function() {
+    request.addEventListener('load', function() {
         console.log('133: ' + request.responseText);
         let obj = JSON.parse(this.responseText);
         let cityName = obj.name;
@@ -148,7 +149,7 @@ function updateWeather() {
     });
     request.open('GET', openLink + '&appid=' + APIKey);
     request.send();
-    console.log('END getWeather');
+    console.log('END updateWeather');
 }
 
 /* /getweather */
