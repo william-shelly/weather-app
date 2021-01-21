@@ -4,11 +4,41 @@ var zip = '90210';
 var country = 'us';
 var units = 'imperial'
 var openLink = link + zip + ',' + country + '&units=' + units;
+// var iconLink = 'http://openweathermap.org/img/wn/';
+var iconLink = 'img/';
 
 var cityOutput = document.querySelector('#cityName');
 var ZIPEntered = document.querySelector('#ZIPEntered');
+var findWeatherButton = document.querySelector('#findWeather');
+
+var zipInputValue = ZIPEntered.value;
+zipInputValue = zip;
 
 var title = document.querySelector('title');
+
+function getZIP() {
+    console.log(zipInputValue);
+    ZIPEntered.focus();
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    startDateTime();
+    ZIPEntered.focus();
+});
+
+if (findWeatherButton !== undefined || findWeatherButton !== null ) {
+	findWeatherButton.onclick = function(event) {
+        console.log('yo');
+        getZIP();
+	};
+}
+
+ZIPEntered.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        console.log('hello');
+        getZIP();
+    }
+});
 
 let request = new XMLHttpRequest();
 request.addEventListener('load', function() {
@@ -28,6 +58,7 @@ request.addEventListener('load', function() {
     let main = obj.weather[0].main;
     let description = obj.weather[0].description;
     let icon = obj.weather[0].icon;
+    icon = icon.replace('d', '').replace('n','');
 
     let unix_timestamp = timestamp;
     // Create a new JavaScript Date object based on the timestamp
@@ -58,9 +89,23 @@ request.addEventListener('load', function() {
     document.querySelector('#timezone').innerHTML = 'Time: ' + timezone;
     document.querySelector('#main').innerHTML = 'Current Weather: ' + main;
     document.querySelector('#description').innerHTML = 'Description: ' + description;
-    document.querySelector('#icon').innerHTML = 'Icon: <img src="http://openweathermap.org/img/wn/' + icon + '@2x.png" alt="' + main + '"/>';
+    document.querySelector('#icon').innerHTML = 'Icon: <img src="' + iconLink + icon + '.svg" alt="' + main + '"/>';
 });
     request.open('GET', openLink + '&appid=' + APIKey);
     request.send();
 
     /* weather */
+
+function startDateTime() {
+    let d = new Date();
+    let day = d.getDay();
+    let dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    let month = d.getMonth();
+    let monthName = ['January','February','March','April','May','June','July','August','September','October','November','December']
+    let date = d.getDate();
+    let year = d.getFullYear();
+    // let time = d.getTime();
+
+    let dateTimeContainer = document.querySelector('#dateTime');
+    dateTimeContainer.innerHTML = '<strong>Today</strong>: ' + dayName[day] + ', ' + monthName[month] + ' ' + date + ', ' + year + ' ';
+}

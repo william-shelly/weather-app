@@ -12,29 +12,37 @@
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-    <div class="container">
-        <h1 id="cityName" class="fs-1"></h1>
-        <input id="ZIPEntered" class="form-control" type="text" value="" placeholder="90210" />
-        <ul>
-            <li><span id="temp" class="text-capitalize"></span></li>
-            <li><span id="temp_min" class="text-capitalize"></span></li>
-            <li><span id="temp_max" class="text-capitalize"></span></li>
-            <li><span id="humidity" class="text-capitalize"></span></li>
-            <li><span id="timestamp" class="text-capitalize text-danger"></span></li>
-            <li><span id="sunrise" class="text-capitalize  text-danger"></span></li>
-            <li><span id="sunset" class="text-capitalize  text-danger"></span></li>
-<!--            <li><span id="conditionID" class="text-capitalize  text-danger"></span></li> -->
-            <li><span id="timezone" class="text-capitalize  text-danger"></span></li>
-            <li><span id="main" class="text-capitalize"></span></li>
-            <li><span id="description" class="text-capitalize"></span></li>
-            <li><span id="icon" class="text-capitalize"></span></li>
-            <!-- <li><span id=""></span></li>
-            <li><span id=""></span></li>
-            <li><span id=""></span></li>
-            <li><span id=""></span></li>
-            <li><span id=""></span></li>
-            <li><span id=""></span></li> -->
-        </ul>
+    <div class="app-container">
+        <div class="container">
+            <h1 id="cityName" class="fs-1"></h1>
+            <h2 id="dateTime" class="position-fixed top-0 end-0 mt-2 me-0 px-2 py-1 fs-6 bg-white border border-white border-2 rounded-start rounded-3 shadow-sm"></h2>
+            <ul>
+                <li><span id="temp" class="text-capitalize"></span></li>
+                <li><span id="temp_min" class="text-capitalize"></span></li>
+                <li><span id="temp_max" class="text-capitalize"></span></li>
+                <li><span id="humidity" class="text-capitalize"></span></li>
+                <li><span id="timestamp" class="text-capitalize text-danger"></span></li>
+                <li><span id="sunrise" class="text-capitalize  text-danger"></span></li>
+                <li><span id="sunset" class="text-capitalize  text-danger"></span></li>
+    <!--            <li><span id="conditionID" class="text-capitalize  text-danger"></span></li> -->
+                <li><span id="timezone" class="text-capitalize  text-danger"></span></li>
+                <li><span id="main" class="text-capitalize"></span></li>
+                <li><span id="description" class="text-capitalize"></span></li>
+                <li><span id="icon" class="text-capitalize"></span></li>
+            </ul>
+            <div id="toDoListAddItemContainer" class="container-fluid fixed-bottom bg-transparent py-4 border-top fixed-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <input id="ZIPEntered" type="number" class="form-control" value="" placeholder="" />
+                        </div>
+                        <div class="col-auto">
+                            <button id="findWeather" type="button" class="btn btn-success mb-3 border-success border-0 rounded-circle transition scale_lg"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="js/index.js"></script>
 </body>
