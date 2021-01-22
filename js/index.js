@@ -11,7 +11,6 @@ if (zip === '' || zip === null || undefined ) {
 var country = 'us';
 var units = 'imperial'
 var openLink = link + zip + ',' + country + '&units=' + units;
-// var iconLink = 'http://openweathermap.org/img/wn/';
 var iconLink = 'img/';
 
 /* set up form elements */
@@ -19,6 +18,7 @@ var iconLink = 'img/';
 var cityOutput = document.querySelector('#cityName');
 var ZIPEntered = document.querySelector('#ZIPEntered');
 var findWeatherButton = document.querySelector('#findWeather');
+var appContainer = document.querySelector('#app-container');
 
 var title = document.querySelector('title');
 
@@ -32,7 +32,8 @@ if (findWeatherButton !== undefined || findWeatherButton !== null ) {
 	findWeatherButton.onclick = function(e) {
         console.log('findWeatherButton clicked');
         getZIP();
-        updateWeather();
+        openLink = link + zip + ',' + country + '&units=' + units;
+        getWeather();
         setZIPEnteredField();
 	};
 } else {
@@ -44,7 +45,8 @@ if (ZIPEntered !== '' || ZIPEntered !== undefined || ZIPEntered !== null ) {
         if (e.key === 'Enter') {
             console.log('ZIPEntered Enter Key Pressed');
             getZIP();
-            updateWeather();
+            openLink = link + zip + ',' + country + '&units=' + units;
+            getWeather();
             setZIPEnteredField();
         }
     });
@@ -75,29 +77,30 @@ function getWeather() {
         let temp_max =obj.main.temp_max;
         let humidity =obj.main.humidity;
 
+        let timezone = obj.timezone;
         let timestamp = obj.dt;
+        let newTimestamp = timestamp;
         let sunrise = obj.sys.sunrise;
         let sunset = obj.sys.sunset;
-        let timezone = obj.timezone;
+
         /* let conditionID = obj.weather[0].id; */
+        let weatherID = obj.weather[0].id;
+        weatherID = weatherID.toString()
         let main = obj.weather[0].main;
         let description = obj.weather[0].description;
         let icon = obj.weather[0].icon;
         icon = icon.replace('d', '').replace('n','');
 
         title.innerText = cityName + ' Weather';
-        cityOutput.innerText = cityName + ' Weather';
-        document.querySelector('#temp').innerHTML = 'Current Temp: ' + temp + '&deg;';
-        document.querySelector('#temp_min').innerHTML = 'Low: ' + temp_min + '&deg;';
-        document.querySelector('#temp_max').innerHTML = 'High: ' + temp_max + '&deg;';
-        document.querySelector('#humidity').innerHTML = 'Humidity: ' + humidity;
-        document.querySelector('#timestamp').innerHTML = 'Time: ' + timestamp;
-        document.querySelector('#sunrise').innerHTML = 'Sunrise: ' + sunrise;
-        document.querySelector('#sunset').innerHTML = 'Sunset: ' + sunset;
-        document.querySelector('#timezone').innerHTML = 'Time: ' + timezone;
-        document.querySelector('#main').innerHTML = 'Current Weather: ' + main;
-        document.querySelector('#description').innerHTML = 'Description: ' + description;
-        document.querySelector('#icon').innerHTML = 'Icon: <img src="' + iconLink + icon + '.svg" alt="' + main + '"/>';
+        cityOutput.innerHTML = cityName;
+        document.querySelector('#temp').innerHTML = Math.trunc(temp) + '&deg;';
+        document.querySelector('#temp_min').innerHTML = 'Temp Low: ' + temp_min + '&deg;';
+        document.querySelector('#temp_max').innerHTML = 'Temp High: ' + temp_max + '&deg;';
+        document.querySelector('#main').innerHTML = main;
+        appContainer.setAttribute('class','');
+        appContainer.classList.add(main.toLowerCase());
+        appContainer.classList.add('group-' + weatherID.substring(0, weatherID.length - 2));
+        document.querySelector('#icon').innerHTML = '<img class="ws-drop-shadow" src="' + iconLink + icon + '.svg" alt="' + main + '"/>';
     });
     request.open('GET', openLink + '&appid=' + APIKey);
     request.send();
@@ -105,54 +108,6 @@ function getWeather() {
 }
 
 /* /getWeather */
-
-/* updateWeather */
-
-function updateWeather() {
-    console.log('Start updateWeather');
-    console.log('getWeather function zip value: ' + zip);
-    openLink = link + zip + ',' + country + '&units=' + units;
-    let request = new XMLHttpRequest();
-    console.log('131: ' + request.responseText);
-    request.addEventListener('load', function() {
-        console.log('133: ' + request.responseText);
-        let obj = JSON.parse(this.responseText);
-        let cityName = obj.name;
-        let temp = obj.main.temp;
-        let temp_min =obj.main.temp_min;
-        let temp_max =obj.main.temp_max;
-        let humidity =obj.main.humidity;
-
-        let timestamp = obj.dt;
-        let sunrise = obj.sys.sunrise;
-        let sunset = obj.sys.sunset;
-        let timezone = obj.timezone;
-        /* let conditionID = obj.weather[0].id; */
-        let main = obj.weather[0].main;
-        let description = obj.weather[0].description;
-        let icon = obj.weather[0].icon;
-        icon = icon.replace('d', '').replace('n','');
-
-        title.innerText = cityName + ' Weather';
-        cityOutput.innerText = cityName + ' Weather';
-        document.querySelector('#temp').innerHTML = 'Current Temp: ' + temp + '&deg;';
-        document.querySelector('#temp_min').innerHTML = 'Low: ' + temp_min + '&deg;';
-        document.querySelector('#temp_max').innerHTML = 'High: ' + temp_max + '&deg;';
-        document.querySelector('#humidity').innerHTML = 'Humidity: ' + humidity;
-        document.querySelector('#timestamp').innerHTML = 'Time: ' + timestamp;
-        document.querySelector('#sunrise').innerHTML = 'Sunrise: ' + sunrise;
-        document.querySelector('#sunset').innerHTML = 'Sunset: ' + sunset;
-        document.querySelector('#timezone').innerHTML = 'Time: ' + timezone;
-        document.querySelector('#main').innerHTML = 'Current Weather: ' + main;
-        document.querySelector('#description').innerHTML = 'Description: ' + description;
-        document.querySelector('#icon').innerHTML = 'Icon: <img src="' + iconLink + icon + '.svg" alt="' + main + '"/>';
-    });
-    request.open('GET', openLink + '&appid=' + APIKey);
-    request.send();
-    console.log('END updateWeather');
-}
-
-/* /getweather */
 
 function startDateTime() {
     let d = new Date();
@@ -168,9 +123,14 @@ function startDateTime() {
     dateTimeContainer.innerHTML = '<strong>Today</strong>: ' + dayName[day] + ', ' + monthName[month] + ' ' + date + ', ' + year + ' ';
 }
 
-/* var zipModal = document.querySelector('#zipModal');
-var zipInput = document.querySelector('#zipInput');
+function convertTimeZone(time) {
+    return time = time/60/60;
+}
 
-zipModal.addEventListener('shown.bs.modal', function () {
-    zipInput.focus();
-}); */
+function convertUnixTime(givenTime) {
+    let timeToConvert = new Date(givenTime * 1000);
+    console.log(timeToConvert);
+    let hours = timeToConvert.getHours();
+    let minutes = timeToConvert.getMinutes();
+    return hours + ':' + minutes;
+}

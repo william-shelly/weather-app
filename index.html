@@ -5,33 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-    <div class="app-container">
-        <div class="container d-flex flex-column">
-            <h1 id="cityName" class="fs-1"></h1>
-            <h2 id="dateTime" class="position-fixed top-0 end-0 mt-2 me-0 px-2 py-1 fs-6 bg-white border border-white border-2 rounded-start rounded-3 shadow-sm"></h2>
+    <div id="app-container">
+        <div class="container app-contents d-flex flex-column justify-content-center align-items-center">
+            <span id="icon" class="d-flex"></span>
+            <span id="main" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
+            <h2 id="dateTime" class="position-fixed top-0 end-0 mt-2 me-2 px-2 py-2 fs-6 text-white"></h2>
 
-            <span id="temp" class="d-flex text-capitalize"></span>
-            <span id="temp_min" class="d-flex text-capitalize"></span>
-            <span id="temp_max" class="d-flex text-capitalize"></span>
-            <span id="humidity" class="d-flex text-capitalize"></span>
-            <span id="timestamp" class="d-flex text-capitalize text-danger"></span>
-            <span id="sunrise" class="d-flex text-capitalize  text-danger"></span>
-            <span id="sunset" class="d-flex text-capitalize  text-danger"></span>
-            <span id="timezone" class="d-flex text-capitalize  text-danger"></span>
-            <span id="main" class="d-flex text-capitalize"></span>
-            <span id="description" class="d-flex text-capitalize"></span>
-            <span id="icon" class="d-flex text-capitalize"></span>
-
-<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#zipModal">
-                Launch demo modal
-            </button> -->
+            <span id="temp" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
+            <span id="temp_min" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
+            <span id="temp_max" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
+            <span id="humidity" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
+            <h1 id="cityName" class="text-center text-color ws-drop-shadow"></h1>
 
             <div id="toDoListAddItemContainer" class="container-fluid fixed-bottom bg-transparent py-4 border-top fixed-bottom">
                 <div class="container">
@@ -47,41 +38,18 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-<!--    <div class="modal fade" id="zipModal" tabindex="-1" aria-labelledby="zipModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input id="ZIPEntered" type="number" class="form-control" value="" placeholder="74101" />
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> -->
     <script src="js/index.js"></script>
 </body>
 </html>
-
-<!-- 
-Create a new folder / GitHub project
-
-Utilize the OpenWeatherMap.org API to get conditions based on a zip code.
-https://openweathermap.org/current#zip
-Sample API key: ccef2c8c8034982955bec1e0b2a83e36
-
-Show the conditions of a default location when the page is loaded - you can choose the location in the world (as long as the API provides the data for it).
-
-Allow the user to type their zip code into an input box, click a button to get conditions for their specific zip code.
-
-Creatively visualize the conditions of the location using CSS and Font Awesome. If it's hot there, show a sun icon and/or some "hot colors", if it's rainy somewhere, show an appropriate icon / color scheme for that situation as well.
-
-Read through the documentation or look at the sample response from the API to determine the possible ways they can communicate what the conditions are (possibly through the "main.temp" and/or the "weather" array in the response.
-
-Show the name of the location for the zip code the user typed in (also in the API response to use).
--->
+<!--
+80014
+81427
+85001
+98101
+10001
+07303
+07726
+14201
+48127
+55111
+ -->
