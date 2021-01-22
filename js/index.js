@@ -135,3 +135,20 @@ function convertUnixTime(givenTime) {
     let minutes = timeToConvert.getMinutes();
     return hours + ':' + minutes;
 }
+
+var ZIPCodeTests = [80014,81427,85001,98101,10001,07303,07726,14201,48127,55111];
+
+function listZIPCodeTests(item, index) {
+    let zipList = ZIPModal.querySelectorAll('.list-group');
+    zipList.innerHTML += index + ':' + item + "<br>";
+}
+
+ZIPModal.addEventListener('shown.bs.modal', function () {
+    ZIPCodeTests.forEach(listZIPCodeTests);
+    alert('test');
+})
+
+
+/* <li class="list-group-item">
+    <button class="btn btn-primary" type="button">80014</button>
+</li> */

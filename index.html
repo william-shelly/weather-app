@@ -16,17 +16,14 @@
         <div class="container app-contents d-flex flex-column justify-content-center align-items-center">
             <span id="icon" class="d-flex"></span>
             <span id="main" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
-            <h2 id="dateTime" class="position-fixed top-0 end-0 mt-2 me-2 px-2 py-2 fs-6 text-white"></h2>
+            <button id="dateTime" type="button" class="btn position-fixed top-0 end-0 mt-2 me-2 px-2 py-2 fs-6 text-white" data-bs-toggle="modal" data-bs-target="#ZIPModal">
+            </button>
 
             <span id="temp" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
             <span id="temp_min" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
             <span id="temp_max" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
             <span id="humidity" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
             <h1 id="cityName" class="text-center text-color px-0 py-4 ws-drop-shadow"></h1>
-
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ZIPModal">
-                ZIPs
-            </button>
 
             <div id="formContainer" class="container-fluid fixed-bottom bg-transparent py-4 border-top fixed-bottom">
                 <div class="container mx-auto form-content">
@@ -50,7 +47,7 @@
                 </div>
                 <div class="modal-body">
                     <ul class="list-group">
-                        <li class="list-group-item">
+                        <!-- <li class="list-group-item">
                             <button class="btn btn-primary" type="button">80014</button>
                         </li>
                         <li class="list-group-item">
@@ -79,12 +76,12 @@
                         </li>
                         <li class="list-group-item">
                             <button class="btn btn-primary" type="button">55111</button>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
               </div>
             </div>
-          </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
