@@ -19,6 +19,7 @@ var cityOutput = document.querySelector('#cityName');
 var ZIPEntered = document.querySelector('#ZIPEntered');
 var findWeatherButton = document.querySelector('#findWeather');
 var appContainer = document.querySelector('#app-container');
+var ZIPModal = document.querySelector('#ZIPModal');
 
 var title = document.querySelector('title');
 

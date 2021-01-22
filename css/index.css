@@ -48,8 +48,12 @@ input[type=number] {
     background: linear-gradient(180deg, #c7dae8 0%, #f0f0f0 66%, #f0f0f0 100%);
 }
 
-#toDoListAddItemContainer {
+#formContainer {
     box-shadow: 0 0px 16px rgba(0,0,0,.2);
+}
+
+.form-content {
+    max-width: 31.25rem;
 }
 
 .transition {
@@ -186,12 +190,15 @@ h1 {
 
 @media only screen and (max-height: 667px) {
     #icon img {
-        width: 180px;
+        width: 120px;
     }
 }
 
 @media only screen and (max-height: 568px) {
     #icon img {
         width: 80px;
+    }
+    #temp {
+        font-size: 4.25rem;
     }
 }
