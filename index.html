@@ -12,18 +12,20 @@
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-    <div id="app-container">
-        <div class="container app-contents d-flex flex-column justify-content-center align-items-center">
-            <span id="icon" class="d-flex"></span>
-            <span id="main" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
+    <div id="app-container" class="d-flex justify-content-center">
+        <div class="container app-contents d-flex flex-column justify-content-center align-items-center flex-lg-row">
+            <span id="icon" class="d-flex mx-4"></span>
+            <span id="main" class="d-flex text-capitalize text-color ws-drop-shadow mx-4"></span>
             <button id="dateTime" type="button" class="btn position-fixed top-0 end-0 mt-2 me-2 px-2 py-2 fs-6 text-white" data-bs-toggle="modal" data-bs-target="#ZIPModal">
             </button>
 
-            <span id="temp" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
-            <span id="temp_min" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
-            <span id="temp_max" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
-            <span id="humidity" class="d-flex text-capitalize text-color ws-drop-shadow"></span>
-            <h1 id="cityName" class="text-center text-color px-0 py-4 ws-drop-shadow"></h1>
+            <span id="temp" class="d-flex text-capitalize text-color ws-drop-shadow mx-4"></span>
+            <div class="d-flex flex-column">
+                <span id="temp_min" class="d-flex text-capitalize text-color justify-content-center justify-content-lg-end ws-drop-shadow mx-2"></span>
+                <span id="temp_max" class="d-flex text-capitalize text-color justify-content-center justify-content-lg-end ws-drop-shadow mx-2"></span>
+            </div>
+            <!-- <span id="humidity" class="d-flex text-capitalize text-color ws-drop-shadow"></span> -->
+            <h1 id="cityName" class="text-center text-color px-0 py-4 ws-drop-shadow mx-4"></h1>
 
             <div id="formContainer" class="container-fluid fixed-bottom bg-transparent py-4 border-top fixed-bottom">
                 <div class="container mx-auto form-content">
@@ -32,7 +34,7 @@
                             <input id="ZIPEntered" type="number" class="form-control" value="" placeholder="74101" />
                         </div>
                         <div class="col-auto">
-                            <button id="findWeather" type="button" class="btn btn-success mb-3 border-success border-0 rounded-circle transition scale_lg"><i class="fas fa-arrow-right"></i></button>
+                            <button id="findWeather" type="button" class="btn bg-white mb-0 border-success border-0 rounded-circle transition scale_lg"><i class="fas fa-arrow-right text-success"></i></button>
                         </div>
                     </div>
                 </div>

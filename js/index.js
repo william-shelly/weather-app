@@ -76,29 +76,32 @@ function getWeather() {
         let temp = obj.main.temp;
         let temp_min =obj.main.temp_min;
         let temp_max =obj.main.temp_max;
-        let humidity =obj.main.humidity;
+        // let humidity =obj.main.humidity;
 
-        let timezone = obj.timezone;
-        let timestamp = obj.dt;
-        let newTimestamp = timestamp;
-        let sunrise = obj.sys.sunrise;
-        let sunset = obj.sys.sunset;
+        // let timezone = obj.timezone;
+        // let timestamp = obj.dt;
+        // let newTimestamp = timestamp;
+        // let sunrise = obj.sys.sunrise;
+        // let sunset = obj.sys.sunset;
 
         /* let conditionID = obj.weather[0].id; */
         let weatherID = obj.weather[0].id;
         weatherID = weatherID.toString()
         let main = obj.weather[0].main;
-        let description = obj.weather[0].description;
+        if (main === 'Clouds') {
+            main = main.replace('Clouds','Cloudy');
+        }
+        // let description = obj.weather[0].description;
         let icon = obj.weather[0].icon;
         icon = icon.replace('d', '').replace('n','');
 
         title.innerText = cityName + ' Weather';
         cityOutput.innerHTML = cityName;
         document.querySelector('#temp').innerHTML = Math.trunc(temp) + '&deg;';
-        document.querySelector('#temp_min').innerHTML = 'Temp Low: ' + temp_min + '&deg;';
-        document.querySelector('#temp_max').innerHTML = 'Temp High: ' + temp_max + '&deg;';
+        document.querySelector('#temp_min').innerHTML = 'Temp Low: ' + Math.trunc(temp_min) + '&deg;';
+        document.querySelector('#temp_max').innerHTML = 'Temp High: ' + Math.trunc(temp_max) + '&deg;';
         document.querySelector('#main').innerHTML = main;
-        appContainer.setAttribute('class','');
+        appContainer.setAttribute('class','d-flex justify-content-center ');
         appContainer.classList.add(main.toLowerCase());
         appContainer.classList.add('group-' + weatherID.substring(0, weatherID.length - 2));
         document.querySelector('#icon').innerHTML = '<img class="ws-drop-shadow" src="' + iconLink + icon + '.svg" alt="' + main + '"/>';
@@ -145,7 +148,6 @@ function listZIPCodeTests(item, index) {
 
 ZIPModal.addEventListener('shown.bs.modal', function () {
     ZIPCodeTests.forEach(listZIPCodeTests);
-    alert('test');
 })
 
 

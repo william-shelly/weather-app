@@ -11,9 +11,9 @@ html, body, #app-container {
 .app-contents {
     height: 100%;
     padding-top: 3rem;
-    padding-left: 3rem;
-    padding-bottom: 9rem;
-    padding-right: 3rem;
+    padding-left: 1rem;
+    padding-bottom: 3rem;
+    padding-right: 1rem;
 }
 
 body {
@@ -98,19 +98,19 @@ h1 {
 }
 /* /clear */
 
-/* clouds */
-.clouds {
+/* cloudy */
+.cloudy {
     background: linear-gradient(180deg, #394359 0%,  #1d428e 100%);
     /* // #394359  // rgba(57,67,89,1); */
     /* // #1d428e // rgba(29,66,142,1); */
 }
-.clouds .text-color {
+.cloudy .text-color {
     color: #fff;
 }
-.clouds  .ws-drop-shadow {
-    filter: drop-shadow(0 4px 8px rgba(4,20,58,.5));
+.cloudy  .ws-drop-shadow {
+    filter: drop-shadow(0 4px 8px rgba(4,20,58,.9));
 }
-/* /clouds */
+/* /cloudy */
 
 /* atmosphere */
 .group-7 {
@@ -122,7 +122,7 @@ h1 {
     color: #fff;
 }
 .group-7  .ws-drop-shadow {
-    filter: drop-shadow(0 4px 8px rgba(4,20,58,.5));
+    filter: drop-shadow(0 4px 8px rgba(4,20,58,.9));
 }
 /* /atmosphere */
 
@@ -136,7 +136,7 @@ h1 {
     color: #fff;
 }
 .snow  .ws-drop-shadow {
-    filter: drop-shadow(0 4px 8px rgba(4,20,58,.5));
+    filter: drop-shadow(0 4px 8px rgba(4,20,58,.9));
 }
 /* /snow */
 
@@ -150,7 +150,7 @@ h1 {
     color: #fff;
 }
 .rain  .ws-drop-shadow {
-    filter: drop-shadow(0 4px 8px rgba(4,20,58,.5));
+    filter: drop-shadow(0 4px 8px rgba(4,20,58,.9));
 }
 /* /rain */
 
@@ -164,7 +164,7 @@ h1 {
     color: #fff;
 }
 .drizzle  .ws-drop-shadow {
-    filter: drop-shadow(0 4px 8px rgba(4,20,58,.5));
+    filter: drop-shadow(0 4px 8px rgba(4,20,58,.9));
 }
 /* /drizzle */
 
@@ -178,7 +178,7 @@ h1 {
     color: #fff;
 }
 .thunderstorm  .ws-drop-shadow {
-    filter: drop-shadow(0 4px 8px rgba(4,20,58,.5));
+    filter: drop-shadow(0 4px 8px rgba(4,20,58,.9));
 }
 /* /thunderstorm */
 
@@ -202,3 +202,6 @@ h1 {
         font-size: 4.25rem;
     }
 }
+
+/* @media only screen and (min-width: 992px) {
+} */
