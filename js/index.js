@@ -20,6 +20,7 @@ var ZIPEntered = document.querySelector('#ZIPEntered');
 var findWeatherButton = document.querySelector('#findWeather');
 var appContainer = document.querySelector('#app-container');
 var ZIPModal = document.querySelector('#ZIPModal');
+var dateTimeContainer = document.querySelector('#dateTime');
 
 var title = document.querySelector('title');
 
@@ -53,15 +54,35 @@ if (ZIPEntered !== '' || ZIPEntered !== undefined || ZIPEntered !== null ) {
     });
 }
 
+dateTime.addEventListener('click', function(e) {
+    if (ZIPModal.classList.contains('show') || ZIPModal !== undefined || ZIPModal !== null ) {
+        let buttons = document.querySelectorAll('.list-group-item .btn');
+        if (buttons !== undefined || buttons !== null ) {
+            for(let i = 0; buttons.length; i++ ) {
+                buttons[i].addEventListener ('click',
+                    function(e) {
+                        console.log('buttonValue: ' + buttons[i].value);
+                        zip = buttons[i].value;
+                        console.log('ZIP: ' + zip);
+                        openLink = link + zip + ',' + country + '&units=' + units;
+                        getWeather();
+                        setZIPEnteredField();
+                    }
+                )
+            }
+        }
+    }
+})
+
 function getZIP() {
     zip = ZIPEntered.value;
-    console.log(zip);
+    console.log('getZIP zip: ' + zip);
 }
 
 function setZIPEnteredField() {
     ZIPEntered.focus();
     ZIPEntered.value = '';
-    ZIPEntered.setAttribute("placeholder",zip);
+    ZIPEntered.setAttribute('placeholder',zip);
 }
 
 /* getWeather */
@@ -123,7 +144,6 @@ function startDateTime() {
     let year = d.getFullYear();
     // let time = d.getTime();
 
-    let dateTimeContainer = document.querySelector('#dateTime');
     dateTimeContainer.innerHTML = '<strong>Today</strong>: ' + dayName[day] + ', ' + monthName[month] + ' ' + date + ', ' + year + ' ';
 }
 
@@ -138,19 +158,3 @@ function convertUnixTime(givenTime) {
     let minutes = timeToConvert.getMinutes();
     return hours + ':' + minutes;
 }
-
-var ZIPCodeTests = [80014,81427,85001,98101,10001,07303,07726,14201,48127,55111];
-
-function listZIPCodeTests(item, index) {
-    let zipList = ZIPModal.querySelectorAll('.list-group');
-    zipList.innerHTML += index + ':' + item + "<br>";
-}
-
-ZIPModal.addEventListener('shown.bs.modal', function () {
-    ZIPCodeTests.forEach(listZIPCodeTests);
-})
-
-
-/* <li class="list-group-item">
-    <button class="btn btn-primary" type="button">80014</button>
-</li> */

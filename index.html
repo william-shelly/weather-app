@@ -24,14 +24,14 @@
                 <span id="temp_min" class="d-flex text-capitalize text-color justify-content-center justify-content-lg-end ws-drop-shadow mx-2"></span>
                 <span id="temp_max" class="d-flex text-capitalize text-color justify-content-center justify-content-lg-end ws-drop-shadow mx-2"></span>
             </div>
-            <!-- <span id="humidity" class="d-flex text-capitalize text-color ws-drop-shadow"></span> -->
+
             <h1 id="cityName" class="text-center text-color px-0 py-4 ws-drop-shadow mx-4"></h1>
 
             <div id="formContainer" class="container-fluid fixed-bottom bg-transparent py-4 border-top fixed-bottom">
                 <div class="container mx-auto form-content">
                     <div class="row">
                         <div class="col">
-                            <input id="ZIPEntered" type="number" class="form-control" value="" placeholder="74101" />
+                            <input id="ZIPEntered" type="number" class="form-control" value="" placeholder="74101" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
                         </div>
                         <div class="col-auto">
                             <button id="findWeather" type="button" class="btn bg-white mb-0 border-success border-0 rounded-circle transition scale_lg"><i class="fas fa-arrow-right text-success"></i></button>
@@ -49,36 +49,36 @@
                 </div>
                 <div class="modal-body">
                     <ul class="list-group">
-                        <!-- <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">80014</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="80014">80014</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">81427</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="81427">81427</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">85001</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="85001">85001</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">98101</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="98101">98101</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">10001</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="10001">10001</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">07303</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="07303">07303</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">07726</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="07726">07726</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">14201</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="14201">14201</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">48127</button>
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="48127">48127</button>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-primary" type="button">55111</button>
-                        </li> -->
+                        <li class="list-group-item text-center">
+                            <button class="btn btn-primary" type="button" value="55111">55111</button>
+                        </li>
                     </ul>
                 </div>
               </div>
