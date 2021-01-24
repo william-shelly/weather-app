@@ -54,6 +54,7 @@ if (ZIPEntered !== '' || ZIPEntered !== undefined || ZIPEntered !== null ) {
     });
 }
 
+/* this is for the test modal */
 dateTime.addEventListener('click', function(e) {
     if (ZIPModal.classList.contains('show') || ZIPModal !== undefined || ZIPModal !== null ) {
         let buttons = document.querySelectorAll('.list-group-item .btn');
@@ -66,12 +67,18 @@ dateTime.addEventListener('click', function(e) {
                         console.log('ZIP: ' + zip);
                         openLink = link + zip + ',' + country + '&units=' + units;
                         getWeather();
-                        setZIPEnteredField();
+                        setTimeout(function () {
+                            setZIPEnteredField();
+                        }, 1000);
+                        ZIPModal.querySelector('[aria-label="Close"]').click();
                     }
                 )
             }
         }
     }
+})
+ZIPModal.addEventListener('hidden.bs.modal', function (event) {
+    setZIPEnteredField();
 })
 
 function getZIP() {
